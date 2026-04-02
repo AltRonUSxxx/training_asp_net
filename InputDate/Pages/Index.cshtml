@@ -1,0 +1,67 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Форма регистрации";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card-body">
+           <h2 class="text-center mb-4">Регистрация на мероприятие!</h2>
+           <form method="post">
+               <div class="mb-3">
+                   <label class="form-label">Имя</label>
+                    <input type="text" name="name" class="form-control" />
+               </div>       
+                
+               <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Пароль</label>
+                    <input type="password" name="password" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Возраст</label>
+                    <input type="text" name="age" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Дополнительная информация</label>
+                    <input type="text" name="additional_info" class="form-control" />
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">
+                           Рагистрация
+                    </button>
+                </div>
+            
+            </form>
+
+            @if(Model._error != null)
+            {   
+                <div class="alert alert-danger mt-4">
+                    @Model._error;
+                </div>
+            }
+            @if (Model._name != null && Model._error == null)
+            {
+                <div class="alert alert-success mt-4">
+                    <h5>Вы успешно зарегистрировались</h5>
+                    <p><b>Имя:</b> @Model._name</p>
+                    <p><b>Возраст:</b> @Model._age</p>
+                    <p><b>Дополнительная информация:</b> @Model._AdditionalInfo</p>
+                    <p><b>Почта:</b> @Model._email</p>
+                    <p><b>Пароль:</b> @Model._password</p>
+                    <p> Регистрация прошла успешно!</p>
+                    <p> Добро пожаловать, !</p>
+
+                    Регистрация прошла успешно!
+                    Добро пожаловать, @Model._name!
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
