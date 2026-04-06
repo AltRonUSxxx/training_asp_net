@@ -1,7 +1,12 @@
+using InputDate.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<dbContext>(options => options.UseSqlite("Data Source=app.db"));
 
 var app = builder.Build();
 
